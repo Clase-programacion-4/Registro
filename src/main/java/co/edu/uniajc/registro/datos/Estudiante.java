@@ -36,7 +36,14 @@ public class Estudiante implements Serializable{
         this.programa = programa;
     }
 
-    
+    public Estudiante(String datos) {
+        String[] piezas = datos.split("\t");
+        this.nombre = piezas[0];
+        this.codigo = Integer.parseInt(piezas[1]);
+        this.universidad = piezas[2];
+        this.programa = piezas[3];
+    }
+
     /**
      * @return the nombre
      */
@@ -95,7 +102,7 @@ public class Estudiante implements Serializable{
 
     @Override
     public String toString() {
-        return "Estudiante{" + "nombre=" + nombre + ", codigo=" + codigo + ", universidad=" + universidad + ", programa=" + programa + '}';
+        return String.format("%s\t%s\t%s\t%s", nombre, codigo, universidad, programa);
     }
 
     @Override
